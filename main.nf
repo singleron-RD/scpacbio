@@ -1,9 +1,9 @@
 #!/usr/bin/env nextflow
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    singleron-RD/scfusion
+    singleronRD/scpacbio
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Github : https://github.com/singleron-RD/scfusion
+    Github : https://github.com/singleronRD/scpacbio
 ----------------------------------------------------------------------------------------
 */
 
@@ -15,9 +15,9 @@ nextflow.enable.dsl = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { scfusion  } from './workflows/scfusion'
-include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_scfusion_pipeline'
-include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_scfusion_pipeline'
+include { SCPACBIO  } from './workflows/scpacbio'
+include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_scpacbio_pipeline'
+include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_scpacbio_pipeline'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,7 +28,7 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_scfu
 //
 // WORKFLOW: Run main analysis pipeline depending on type of input
 //
-workflow SINGLERONRD_scsnp {
+workflow FUXIN3_SCPACBIO {
 
     take:
     samplesheet // channel: samplesheet read in from --input
@@ -38,12 +38,12 @@ workflow SINGLERONRD_scsnp {
     //
     // WORKFLOW: Run pipeline
     //
-    scfusion (
+    SCPACBIO (
         samplesheet
     )
 
     emit:
-    multiqc_report = scfusion.out.multiqc_report // channel: /path/to/multiqc_report.html
+    multiqc_report = SCPACBIO.out.multiqc_report // channel: /path/to/multiqc_report.html
 
 }
 /*
@@ -72,7 +72,7 @@ workflow {
     //
     // WORKFLOW: Run main workflow
     //
-    SINGLERONRD_scfusion (
+    FUXIN3_SCPACBIO (
         PIPELINE_INITIALISATION.out.samplesheet
     )
 
@@ -86,7 +86,7 @@ workflow {
         params.outdir,
         params.monochrome_logs,
         params.hook_url,
-        SINGLERONRD_scfusion.out.multiqc_report
+        FUXIN3_SCPACBIO.out.multiqc_report
     )
 }
 

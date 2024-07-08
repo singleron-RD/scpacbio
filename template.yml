@@ -1,0 +1,11 @@
+name: scpacbio
+description: A bioinformatics pipeline to detect AS in PacBio datasets
+author: fuxin
+prefix: singleronRD
+skip:
+  - github
+  - ci
+  - github_badges
+  - igenomes
+  - nf_core_configs
+outdir: ./

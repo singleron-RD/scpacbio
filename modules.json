@@ -1,62 +1,143 @@
 {
-    "name": "singleron-RD/scfusion",
-    "homePage": "https://github.com/singleron-RD/scfusion",
+    "name": "singleronRD/scpacbio",
+    "homePage": "https://github.com/singleronRD/scpacbio",
     "repos": {
         "https://github.com/nf-core/modules.git": {
             "modules": {
                 "nf-core": {
-                    "bcftools/filter": {
-                        "branch": "master",
-                        "git_sha": "a3893076a76e91b3ff152faddf872f00778fb224",
-                        "installed_by": [
-                            "modules"
-                        ]
-                    },
                     "fastqc": {
                         "branch": "master",
-                        "git_sha": "f4ae1d942bd50c5c0b9bd2de1393ce38315ba57c",
-                        "installed_by": [
-                            "modules"
-                        ]
-                    },                
-                    "samtools/faidx": {
-                        "branch": "master",
-                        "git_sha": "f153f1f10e1083c49935565844cccb7453021682",
-                        "installed_by": [
-                            "modules"
-                        ]
+                        "git_sha": "285a50500f9e02578d90b3ce6382ea3c30216acd",
+                        "installed_by": ["modules"]
                     },
-                    "samtools/index": {
+                    "multiqc": {
                         "branch": "master",
-                        "git_sha": "f4596fe0bdc096cf53ec4497e83defdb3a94ff62",
-                        "installed_by": [
-                            "modules"
-                        ]
+                        "git_sha": "b7ebe95761cd389603f9cc0e0dc384c0f663815a",
+                        "installed_by": ["modules"]
+                    },
+                    "remove_primer": {
+                        "branch": "master",
+                        "git_sha": "ac5e74fda0c783d19c92017700770b1a877b2a77",
+                        "installed_by": ["modules"]
+                    },
+                    "lima": {
+                        "branch": "master",
+                        "git_sha": "30070fc564e303ce742fc1abb9aef662f6e281ff",
+                        "installed_by": ["modules"]
+                    },
+                    "isoseq3": {
+                        "tag": {
+                            "branch": "master",
+                            "git_sha": "293accfc5449dc514d90bbbbf3e068905cd27e29",
+                            "installed_by": ["modules"]
+                        },
+                        "dedup": {
+                            "branch": "master",
+                            "git_sha": "",
+                            "installed_by": ["modules"]
+                        },
+                        "collapse": {
+                            "branch": "master",
+                            "git_sha": "",
+                            "installed_by": ["modules"]
+                        }
+                    },
+                    "blastn": {
+                        "branch": "master",
+                        "git_sha": "4262a04142431275e54e1f4b413628a2201ed6e6",
+                        "installed_by": ["modules"]
+                    },
+                    "minimap2": {
+                        "branch": "master",
+                        "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",
+                        "installed_by": ["modules"]
+                    },
+                    "pbmm2": {
+                        "branch": "master",
+                        "git_sha": "",
+                        "installed_by": ["modules"]
+                    },
+                    "pigeon": {
+                        "branch": "master",
+                        "git_sha": "",
+                        "installed_by": ["modules"]
+                    },
+                    "pbindex": {
+                        "branch": "master",
+                        "git_sha": "",
+                        "installed_by": ["modules"]
+                    }
+                },
+                "subworkflows": {
+                    "nf-core": {
+                        "utils_nextflow_pipeline": {
+                            "branch": "master",
+                            "git_sha": "5caf7640a9ef1d18d765d55339be751bb0969dfa",
+                            "installed_by": ["subworkflows"]
+                        },
+                        "utils_nfcore_pipeline": {
+                            "branch": "master",
+                            "git_sha": "92de218a329bfc9a9033116eb5f65fd270e72ba3",
+                            "installed_by": ["subworkflows"]
+                        },
+                        "utils_nfvalidation_plugin": {
+                            "branch": "master",
+                            "git_sha": "5caf7640a9ef1d18d765d55339be751bb0969dfa",
+                            "installed_by": ["subworkflows"]
+                        }
                     }
                 }
-            },
-            "subworkflows": {
+            }
+        },
+        "https://github.com/nf-core/isoseq.git": {
+            "modules": {
                 "nf-core": {
-                    "utils_nextflow_pipeline": {
+                    "isoseq3": {
+                        "refine": {
+                            "branch": "master",
+                            "git_sha": "6f214c17f0586886f941f78c340ae210cde62eb3",
+                            "installed_by": ["modules"]
+                        }
+                    }
+                }
+            }
+        },
+        "https://github.com:singleronRD/scpacbio.git": {
+            "modules": {
+                "nf-core": {
+                    "isoseq3": {
+                        "dedup": {
+                            "branch": "master",
+                            "git_sha": "",
+                            "installed_by": ["modules"]
+                        },
+                        "collapse": {
+                            "branch": "master",
+                            "git_sha": "",
+                            "installed_by": ["modules"]
+                        }
+                    }
+                },
+                "local": {
+                    "extract_bc": {
                         "branch": "master",
-                        "git_sha": "5caf7640a9ef1d18d765d55339be751bb0969dfa",
-                        "installed_by": [
-                            "subworkflows"
-                        ]
+                        "git_sha": "",
+                        "installed_by": ["modules"]
                     },
-                    "utils_nfcore_pipeline": {
+                    "parse_blastn": {
                         "branch": "master",
-                        "git_sha": "5caf7640a9ef1d18d765d55339be751bb0969dfa",
-                        "installed_by": [
-                            "subworkflows"
-                        ]
+                        "git_sha": "",
+                        "installed_by": ["modules"]
                     },
-                    "utils_nfvalidation_plugin": {
+                    "correct_bc": {
                         "branch": "master",
-                        "git_sha": "5caf7640a9ef1d18d765d55339be751bb0969dfa",
-                        "installed_by": [
-                            "subworkflows"
-                        ]
+                        "git_sha": "",
+                        "installed_by": ["modules"]
+                    },
+                    "get_fasta": {
+                        "branch": "master",
+                        "git_sha": "",
+                        "installed_by": ["modules"]
                     }
                 }
             }
