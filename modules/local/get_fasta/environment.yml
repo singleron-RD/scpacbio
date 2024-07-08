@@ -1,0 +1,7 @@
+name: "isoseq3_dedup"
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - "bioconda::samtools=1.20"

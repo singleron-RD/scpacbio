@@ -1,0 +1,8 @@
+name: "extract_bc"
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - "conda-forge::python==3.12"
+  - "bioconda::pysam==0.22.1"

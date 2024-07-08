@@ -1,4 +1,6 @@
 sample,fastq_1,fastq_2
-Sample_X,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/test_R1.fastq.gz,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/test_R2.fastq.gz
-Sample_Y,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/Sample_Y_S1_L001_R1_001.fastq.gz,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/Sample_Y_S1_L001_R2_001.fastq.gz
-Sample_Y,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/Sample_Y_S1_L002_R1_001.fastq.gz,https://github.com/singleron-RD/scsnp_test_data/raw/master/GEXSCOPE-V2/Sample_Y_S1_L002_R2_001.fastq.gz
+SAMPLE_PAIRED_END,/path/to/fastq/files/AEG588A1_S1_L002_R1_001.fastq.gz,/path/to/fastq/files/AEG588A1_S1_L002_R2_001.fastq.gz
+SAMPLE_SINGLE_END,/path/to/fastq/files/AEG588A4_S4_L003_R1_001.fastq.gz,
+
+sample,ccs
+SAMPLE,/path/to/ccsbam/files/test.bam
