@@ -28,7 +28,7 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_scpa
 //
 // WORKFLOW: Run main analysis pipeline depending on type of input
 //
-workflow FUXIN3_SCPACBIO {
+workflow SingleronRD_SCPACBIO {
 
     take:
     samplesheet // channel: samplesheet read in from --input
@@ -72,7 +72,7 @@ workflow {
     //
     // WORKFLOW: Run main workflow
     //
-    FUXIN3_SCPACBIO (
+    SingleronRD_SCPACBIO (
         PIPELINE_INITIALISATION.out.samplesheet
     )
 
@@ -86,7 +86,7 @@ workflow {
         params.outdir,
         params.monochrome_logs,
         params.hook_url,
-        FUXIN3_SCPACBIO.out.multiqc_report
+        SingleronRD_SCPACBIO.out.multiqc_report
     )
 }
 
