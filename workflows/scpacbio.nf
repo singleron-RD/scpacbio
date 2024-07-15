@@ -95,12 +95,6 @@ workflow SCPACBIO {
         )
     )
 
-    MULTIQC (
-        ch_multiqc_files.collect(),
-        ch_multiqc_config.toList(),
-        ch_multiqc_custom_config.toList(),
-        ch_multiqc_logo.toList()
-    )
     //
     // MODULE: REMOVE_PRIMER
     //
@@ -113,8 +107,8 @@ workflow SCPACBIO {
         primers = Channel.fromPath(params.primer_fasta_file)
     )
 
-    //LIMA.out.p53_bam.view()
-    //ch_versions = ch_versions.mix(LIMA.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(LIMA.out.p53_bam.collect{it[1]})
+    ch_versions = ch_versions.mix(LIMA.out.versions.first())
 
     //
     // MODULE: DETECT_PATTERN
@@ -175,6 +169,14 @@ workflow SCPACBIO {
     //
     // MODULE: GENERATE_MATRIX
     //
+
+    //
+    MULTIQC (
+        ch_multiqc_files.collect(),
+        ch_multiqc_config.toList(),
+        ch_multiqc_custom_config.toList(),
+        ch_multiqc_logo.toList()
+    )
 
 
     emit:

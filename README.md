@@ -18,6 +18,7 @@
 4. Aligned HiFi/ccs reads to genome ([`pbmm`](https://github.com/PacificBiosciences/pbmm2))
 5. Collapse mapping reads to get AS(Alternative Splicing) isoforms (isoseq3)
 6. Filter and annotate AS event ([`SQANTI3`](https://github.com/ConesaLab/SQANTI3))
+7. Generate isoform matrix
 ## Usage
 
 > [!NOTE]

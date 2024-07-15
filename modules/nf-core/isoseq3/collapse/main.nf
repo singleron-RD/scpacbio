@@ -9,10 +9,18 @@ process ISOSEQ3_COLLAPSE {
 
 
     input:
-    tuple val(meta), path(bam)
+    tuple val(meta), path(bam_map)
 
     output:
     tuple val(meta), path("*.gff"), emit: gff     // _rmdup is hardcoded output from dedup
+    tuple val(meta), path("*.abundance.txt"), emit: abundance
+    tuple val(meta), path("*.fasta"),       emit: fasta
+    tuple val(meta), path("*.group.txt"),   emit: group
+    tuple val(meta), path("*.fastq"),       emit: fastq
+    tuple val(meta), path("*.report.json"), emit: json
+    tuple val(meta), path("*.read_stat.txt"), emit: read_stat
+    
+
     //tuple val(meta), path("*.dedup.fasta"), emit: dedup_fasta
     //tuple val(meta), path("*.hist")     , emit: hist
     //tuple val(meta), path("*log")       , emit: log
@@ -29,9 +37,8 @@ process ISOSEQ3_COLLAPSE {
     isoseq3 \\
         collapse \\
         -j $task.cpus \\
-        $bam \\
-        ${prefix}.collapse.gff \\
-        $args
+        ${bam_map} \\
+        collapse.gff 
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
